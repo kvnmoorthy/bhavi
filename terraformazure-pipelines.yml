@@ -19,7 +19,7 @@ steps:
     backendAzureRmResourceGroupName: 'cprime_rg'
     backendAzureRmStorageAccountName: 'cprimestorageacc017'
     backendAzureRmContainerName: 'cprime-file'
-    backendAzureRmKey: 'main.tf'
+    backendAzureRmKey: 'sample.txt'
 - task: TerraformTaskV4@4
   displayName: 'Terraform validate'
   inputs:
