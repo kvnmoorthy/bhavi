@@ -10,8 +10,6 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: charleszipp.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-cli.terraformcli@0
-  displayName: 'Terraform version'
 - task: TerraformTaskV4@4
   displayName: 'Terraform Init'
   inputs:
