@@ -9,29 +9,28 @@ resource "azurerm_role_assignment" "role_acrpull" {
   principal_id                     = azurerm_kubernetes_cluster.aks.kubelet_identity.0.object_id
   skip_service_principal_aad_check = true
 }
-resource "azurerm_storage_account" "storage" {
-  name                     = var.storage_account_name
-  resource_group_name      = azurerm_resource_group.aks-rg.name
-  location                 = var.location
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-  # allow_blob_public_access = false
-  # account_kind             = "Blobstorage"
-}
+# resource "azurerm_storage_account" "storage" {
+#   name                     = var.storage_account_name
+#   resource_group_name      = azurerm_resource_group.aks-rg.name
+#   location                 = var.location
+#   account_tier             = "Standard"
+#   account_replication_type = "LRS"
 
-resource "azurerm_storage_container" "container" {
-  name                  = var.storage_container_name
-  storage_account_name  = azurerm_storage_account.storage.name
-  container_access_type = "private" # "blob" "private"
-}
+# }
 
-resource "azurerm_storage_blob" "blob" {
-  name                   = "sample.txt"
-  storage_account_name   = azurerm_storage_account.storage.name
-  storage_container_name = azurerm_storage_container.container.name
-  type                   = "Block"
-  source                 = "sample.txt"
-}
+# resource "azurerm_storage_container" "container" {
+#   name                  = var.storage_container_name
+#   storage_account_name  = azurerm_storage_account.storage.name
+#   container_access_type = "private" # "blob" "private"
+# }
+
+# resource "azurerm_storage_blob" "blob" {
+#   name                   = "sample.txt"
+#   storage_account_name   = azurerm_storage_account.storage.name
+#   storage_container_name = azurerm_storage_container.container.name
+#   type                   = "Block"
+#   source                 = "sample.txt"
+# }
 
 resource "azurerm_container_registry" "acr" {
   name                = var.acr_name
