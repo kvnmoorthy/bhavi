@@ -6,15 +6,15 @@ variable "location" {
   type        = string
   description = "Resources location in Azure"
 }
-variable "storage_account_name" {
-  type        = string
-  description = "Storage Account name in Azure"
-}
+# variable "storage_account_name" {
+#   type        = string
+#   description = "Storage Account name in Azure"
+# }
 
-variable "storage_container_name" {
-  type        = string
-  description = "Storage Container name in Azure"
-}
+# variable "storage_container_name" {
+#   type        = string
+#   description = "Storage Container name in Azure"
+# }
 variable "cluster_name" {
   type        = string
   description = "AKS name in Azure"
