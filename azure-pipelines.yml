@@ -9,35 +9,30 @@ trigger:
 pool:
   terraform
 
-
 steps:
 - task: TerraformTaskV4@4
   displayName: 'Terraform Init'
   inputs:
     provider: 'azurerm'
     command: 'init'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/bhavi'
     backendServiceArm: 'Free Trial(3c850cea-049e-4bff-a039-406dc6fafa3c)'
     backendAzureRmResourceGroupName: 'cprime_rg'
     backendAzureRmStorageAccountName: 'cprimestorageacc017'
     backendAzureRmContainerName: 'cprime-file'
-    backendAzureRmKey: 'terraform.tfstate'
+    backendAzureRmKey: 'terraform.tf'
 - task: TerraformTaskV4@4
   displayName: 'Terraform validate'
   inputs:
     provider: 'azurerm'
     command: 'validate'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/bhavi'
-    environmentServiceNameAzureRM: 'Free Trial(3c850cea-049e-4bff-a039-406dc6fafa3c)'
 - task: TerraformTaskV4@4
-  displayName: 'Terraform Plan'
+  displayName: 'Terraform plan'
   inputs:
     provider: 'azurerm'
     command: 'plan'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/bhavi'
     environmentServiceNameAzureRM: 'Free Trial(3c850cea-049e-4bff-a039-406dc6fafa3c)'
 - task: TerraformTaskV4@4
-  displayName: 'Terraform Deploy'
+  displayName: 'Terraform Depoly'
   inputs:
     provider: 'azurerm'
     command: 'apply'
@@ -47,12 +42,10 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'destroy'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/bhavi'
     environmentServiceNameAzureRM: 'Free Trial(3c850cea-049e-4bff-a039-406dc6fafa3c)'
 - task: TerraformTaskV4@4
   displayName: 'Terraform Redeploy'
   inputs:
     provider: 'azurerm'
     command: 'apply'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/bhavi'
     environmentServiceNameAzureRM: 'Free Trial(3c850cea-049e-4bff-a039-406dc6fafa3c)'
