@@ -9,6 +9,7 @@ trigger:
 pool:
   terraform
 
+
 steps:
 - task: TerraformTaskV4@4
   displayName: 'Terraform Init'
