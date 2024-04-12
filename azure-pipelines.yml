@@ -11,7 +11,7 @@ pool:
 
 steps:
 - task: TerraformTaskV4@4
-  displayname: 'Terraform Init'
+  displayName: 'Terraform Init'
   inputs:
     provider: 'azurerm'
     command: 'init'
@@ -21,30 +21,30 @@ steps:
     backendAzureRmContainerName: 'cprime-file'
     backendAzureRmKey: 'terraform.tf'
 - task: TerraformTaskV4@4
-  displayname: 'Terraform validate'
+  displayName: 'Terraform validate'
   inputs:
     provider: 'azurerm'
     command: 'validate'
 - task: TerraformTaskV4@4
-  displayname: 'Terraform plan'
+  displayName: 'Terraform plan'
   inputs:
     provider: 'azurerm'
     command: 'plan'
     environmentServiceNameAzureRM: 'Free Trial(3c850cea-049e-4bff-a039-406dc6fafa3c)'
 - task: TerraformTaskV4@4
-  displayname: 'Terraform deploy'
+  displayName: 'Terraform Depoly'
   inputs:
     provider: 'azurerm'
     command: 'apply'
     environmentServiceNameAzureRM: 'Free Trial(3c850cea-049e-4bff-a039-406dc6fafa3c)'
 - task: TerraformTaskV4@4
-  displayname: 'Terraform destroy'
+  displayName: 'Terraform Destroy'
   inputs:
     provider: 'azurerm'
     command: 'destroy'
     environmentServiceNameAzureRM: 'Free Trial(3c850cea-049e-4bff-a039-406dc6fafa3c)'
 - task: TerraformTaskV4@4
-  displayname: 'Terraform redeploy'
+  displayName: 'Terraform Redeploy'
   inputs:
     provider: 'azurerm'
     command: 'apply'
