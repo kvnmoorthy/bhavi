@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: my-container
-        image: nginx:latest
+        image: cprimemyacr321012.azurecr.io/shecloud 
         ports:
         - containerPort: 3000
 
